@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from models.user_models import Base
+from models.user import Base
 from config.database import engine
 
 app = FastAPI()
