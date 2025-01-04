@@ -5,7 +5,8 @@ from typing import Optional
 class UserCreate(BaseModel):
     name: str
     email: EmailStr
-    password: str
+    password_hash: str
+    is_active: bool = True
 
 
 class UserUpdate(BaseModel):
@@ -22,4 +23,4 @@ class UserResponse(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True 
+        orm_mode = True
