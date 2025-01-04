@@ -11,7 +11,7 @@ async def create_user(user: UserCreate, db: AsyncSession = Depends(get_db)) -> U
     user_service = UserService(db)
     return await user_service.create_user(user)
 
-@router.get("/users", response_model=list[UserResponse], status_code=200 if len(UserResponse) > 0 else 204)
+@router.get("/users", response_model=list[UserResponse], status_code=200)
 async def get_users(db: AsyncSession = Depends(get_db)) -> list[UserResponse]:
     user_service = UserService(db)
     return await user_service.all_users()
