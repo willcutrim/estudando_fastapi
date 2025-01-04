@@ -20,3 +20,8 @@ async def get_users(db: AsyncSession = Depends(get_db)) -> list[UserResponse]:
 async def get_user(id: int, db: AsyncSession = Depends(get_db)):
     user_service = UserService(db)
     return await user_service.get_user(id)
+
+@router.patch("/{id}", response_model=UserResponse)
+async def delete_user(id: int, db: AsyncSession = Depends(get_db)):
+    user_service = UserService(db)
+    return await user_service.delete_user(id)
